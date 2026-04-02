@@ -20,7 +20,7 @@ function Navbar() {
 
       <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
 
-        {/* 🧠 LOGO */}
+        {/*  LOGO */}
         <Link to="/" className="flex items-center gap-2 group">
           <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center shadow-md shadow-orange-700/40 group-hover:scale-105 transition-transform duration-200">
             <span className="text-white font-bold text-sm">E</span>
@@ -30,7 +30,7 @@ function Navbar() {
           </span>
         </Link>
 
-        {/* 🔗 LINKS — solo visible en desktop */}
+      
         <div className="hidden md:flex items-center gap-6">
           <Link
             to="/"
@@ -72,7 +72,7 @@ function Navbar() {
           </button>
         </div>
 
-        {/* 📱 LADO DERECHO MÓVIL — carrito + hamburguesa */}
+        {/*  LADO DERECHO MÓVIL — carrito + hamburguesa */}
         <div className="flex md:hidden items-center gap-3">
 
           {/* 🛒 Carrito visible siempre en móvil */}
@@ -88,7 +88,7 @@ function Navbar() {
             )}
           </Link>
 
-          {/* ☰ Botón hamburguesa */}
+         
           <button
             onClick={() => setMenuAbierto(!menuAbierto)}
             className="w-9 h-9 flex flex-col items-center justify-center gap-1.5 rounded-xl bg-white/10 hover:bg-white/20 transition"
@@ -101,7 +101,7 @@ function Navbar() {
 
       </div>
 
-      {/* 📱 MENÚ MÓVIL desplegable */}
+     
       {menuAbierto && (
         <div className="md:hidden bg-[#0f0f0f]/95 backdrop-blur-xl border-t border-white/10 px-4 py-4 flex flex-col gap-3">
 

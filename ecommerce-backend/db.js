@@ -1,10 +1,22 @@
-const mysql = require("mysql2")
+const mysql = require("mysql2/promise");
 
-const pool = mysql.createPool({
-  host: "localhost",
+const db = mysql.createPool({
+  host: "nozomi.proxy.rlwy.net",
   user: "root",
-  password: "",
-  database: "ecommerce_adso",
-})
+  password: "YgZYxnEAWoalYveqSROGTexnHmohDOrr",
+  database: "railway",
+  port: 22709
+});
 
-module.exports = pool.promise()
+// (Opcional) probar conexión
+(async () => {
+  try {
+    const connection = await db.getConnection();
+    console.log("✅ Conectado a MySQL 🚀");
+    connection.release();
+  } catch (error) {
+    console.error("❌ Error de conexión:", error);
+  }
+})();
+
+module.exports = db;

@@ -1,14 +1,21 @@
-const express = require("express")
-const cors = require("cors")
+const express = require("express");
+const cors = require("cors");
 
-const app = express()
+const app = express();
 
-app.use(cors({ origin: "http://localhost:5173" }))
-app.use(express.json())
+// ✅ CORS abierto (para que Netlify pueda conectarse)
+app.use(cors());
 
-app.use("/api/auth", require("./routes/auth"))
-app.use("/api/productos", require("./routes/productos"))
+// ✅ Leer JSON
+app.use(express.json());
 
-app.listen(3001, () => {
-  console.log("✅ Servidor corriendo en http://localhost:3001")
-})
+// ✅ Rutas
+app.use("/api/auth", require("./routes/auth"));
+app.use("/api/productos", require("./routes/productos"));
+
+// ✅ Puerto dinámico (IMPORTANTE para Railway)
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => {
+  console.log(`🚀 Servidor corriendo http://localhost:3001/api/productos`);
+});

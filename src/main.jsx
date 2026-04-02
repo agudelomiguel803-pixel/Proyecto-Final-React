@@ -10,11 +10,11 @@ import { ProductosProvider } from "./context/ProductosContext"
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <AuthProvider>
-      <ProductosProvider> {/* ✅ NUEVO */}
+      <ProductosProvider> 
         <CarritoProvider>
           <App />
         </CarritoProvider>
-      </ProductosProvider> {/* ✅ NUEVO */}
+      </ProductosProvider> 
     </AuthProvider>
   </BrowserRouter>
 )

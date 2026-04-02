@@ -107,7 +107,7 @@ function Productos() {
 
       <div className="relative z-10 max-w-7xl mx-auto">
 
-        {/* 🔥 TÍTULO — ✅ texto más pequeño en móvil para que no se corte */}
+        
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 shadow-lg shadow-orange-700/40 mb-3">
             <span className="text-white text-xl md:text-2xl font-bold">E</span>
@@ -120,7 +120,7 @@ function Productos() {
           </p>
         </div>
 
-        {/* 🔐 PANEL ADMIN */}
+     
         {user?.username === "admin" && (
           <div className="mb-6">
             <div className="flex justify-center mb-4">
@@ -176,7 +176,7 @@ function Productos() {
           </div>
         )}
 
-        {/* 🔍 BUSCADOR */}
+      
         <div className="mb-8 flex justify-center">
           <input
             type="text"
@@ -193,7 +193,7 @@ function Productos() {
           </p>
         )}
 
-        {/* 🛒 GRID — ✅ 1 col en móvil muy pequeño, 2 col en móvil normal */}
+       
         <div className="grid grid-cols-1 min-[400px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-8">
           {productosFiltrados.map((prod) => (
             <div key={prod.id} className="relative group">

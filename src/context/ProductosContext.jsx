@@ -2,13 +2,12 @@ import { createContext, useContext, useState, useEffect } from "react"
 
 export const ProductosContext = createContext()
 
-const API = "http://localhost:3001/api/productos"
-
+const API = "https://ecommerce-backend-production-bd25.up.railway.app/api/productos"
 export function ProductosProvider({ children }) {
   const [productos, setProductos] = useState([])
   const [cargando, setCargando] = useState(true)
 
-  // ✅ Cargar productos del backend al iniciar
+
   useEffect(() => {
     fetch(API)
       .then((res) => res.json())
@@ -22,7 +21,7 @@ export function ProductosProvider({ children }) {
       })
   }, [])
 
-  // ✅ Agregar — POST al backend
+
   const agregarProducto = async (nuevo) => {
     try {
       const res = await fetch(API, {
@@ -37,7 +36,7 @@ export function ProductosProvider({ children }) {
     }
   }
 
-  // ✅ Eliminar — DELETE al backend
+ 
   const eliminarProducto = async (id) => {
     try {
       await fetch(`${API}/${id}`, { method: "DELETE" })
@@ -47,7 +46,7 @@ export function ProductosProvider({ children }) {
     }
   }
 
-  // ✅ Editar — PUT al backend
+
   const editarProducto = async (id, datos) => {
     try {
       await fetch(`${API}/${id}`, {

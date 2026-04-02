@@ -39,7 +39,7 @@ function Detalle() {
   return (
     <div className="relative min-h-screen bg-[#0f0f0f] flex items-start md:items-center justify-center p-4 md:p-6 overflow-hidden">
 
-      {/* 🔴 Glows */}
+      
       <div className="pointer-events-none fixed inset-0 z-0">
         <div className="absolute top-1/4 left-1/4 w-64 md:w-96 h-64 md:h-96 bg-orange-700/20 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-64 md:w-96 h-64 md:h-96 bg-red-800/20 rounded-full blur-3xl" />
@@ -47,7 +47,7 @@ function Detalle() {
 
       <div className="relative z-10 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 p-5 md:p-8 shadow-2xl shadow-black/60 my-6">
 
-        {/* 🖼 IMAGEN */}
+       
         <div className="flex items-center justify-center overflow-hidden rounded-2xl border border-white/10">
           <img
             src={producto.imagen}
@@ -56,7 +56,6 @@ function Detalle() {
           />
         </div>
 
-        {/* 📦 INFO */}
         <div className="flex flex-col justify-between gap-4">
           <div>
             <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white tracking-wide uppercase">
@@ -70,7 +69,7 @@ function Detalle() {
               ${Number(producto.precio).toLocaleString("es-CO")}
             </p>
 
-            {/* 🔢 Cantidad */}
+         
             <div className="flex items-center gap-4 mb-4">
               <button
                 onClick={() => setCantidad(cantidad - 1)}
@@ -92,7 +91,7 @@ function Detalle() {
             </div>
           </div>
 
-          {/* 🛒 Botón */}
+        
           <button
             onClick={() => agregarAlCarrito(producto)}
             className="w-full py-3 md:py-4 rounded-xl font-bold text-white text-sm md:text-base tracking-widest uppercase bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-400 hover:to-red-500 shadow-lg shadow-orange-700/30 hover:scale-[1.02] transition-all duration-200"
