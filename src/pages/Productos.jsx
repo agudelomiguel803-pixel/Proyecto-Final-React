@@ -65,7 +65,7 @@ function Productos() {
   return (
     <div className="relative min-h-screen bg-[#0f0f0f] py-10 px-4 overflow-hidden">
 
-      {/* 🔥 FONDO ORIGINAL */}
+      {/* FONDO */}
       <div className="pointer-events-none fixed inset-0 z-0">
         <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-orange-600/20 blur-3xl rounded-full" />
         <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-red-700/20 blur-3xl rounded-full" />
@@ -73,7 +73,7 @@ function Productos() {
 
       <div className="relative z-10 max-w-7xl mx-auto">
 
-        {/* 🔥 HEADER PRO */}
+        {/* HEADER */}
         <div className="text-center mb-10">
           <h2 className="text-4xl font-bold text-white tracking-widest uppercase">
             Ecommerce ADSO
@@ -83,7 +83,7 @@ function Productos() {
           </p>
         </div>
 
-        {/*  ADMIN */}
+        {/* ADMIN */}
         {user?.username === "admin" && (
           <div className="mb-10 text-center">
 
@@ -135,7 +135,6 @@ function Productos() {
                     src={form.imagen}
                     alt="preview"
                     className="w-full h-40 object-cover rounded-xl"
-                    onError={(e) => (e.target.style.display = "none")}
                   />
                 )}
 
@@ -151,7 +150,7 @@ function Productos() {
           </div>
         )}
 
-        {/* 🔍 BUSCADOR PRO */}
+        {/* BUSCADOR */}
         <div className="flex justify-center mb-10">
           <input
             type="text"
@@ -162,7 +161,7 @@ function Productos() {
           />
         </div>
 
-        {/*  LISTA */}
+        {/* LISTA */}
         {productosFiltrados.length === 0 ? (
           <p className="text-gray-400 text-center">
             No hay productos
@@ -201,51 +200,70 @@ function Productos() {
 
       {/* MODAL EDITAR */}
       {productoEditando && (
-        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
 
-          <div className="bg-[#1a1a1a] p-6 rounded-2xl w-80 space-y-3 border border-white/10">
+          <div className="bg-[#1a1a1a] border border-white/10 rounded-2xl p-6 w-full max-w-md shadow-2xl">
 
-            <input
-              type="text"
-              name="nombre"
-              value={formEdit.nombre}
-              onChange={handleChangeEdit}
-              className="w-full p-2 rounded bg-white text-black"
-            />
+            <h3 className="text-white font-bold text-lg mb-4">
+              ✏️ Editar producto
+            </h3>
 
-            <input
-              type="number"
-              name="precio"
-              value={formEdit.precio}
-              onChange={handleChangeEdit}
-              className="w-full p-2 rounded bg-white text-black"
-            />
+            <div className="flex flex-col gap-3">
 
-            <input
-              type="text"
-              name="imagen"
-              value={formEdit.imagen}
-              onChange={handleChangeEdit}
-              className="w-full p-2 rounded bg-white text-black"
-            />
+              <input
+                type="text"
+                name="nombre"
+                value={formEdit.nombre}
+                onChange={handleChangeEdit}
+                className="w-full p-3 rounded-xl bg-white text-black"
+              />
 
-            <div className="flex gap-2">
-              <button
-                onClick={() => setProductoEditando(null)}
-                className="bg-gray-500 px-3 py-1 text-white rounded"
-              >
-                Cancelar
-              </button>
+              <input
+                type="number"
+                name="precio"
+                value={formEdit.precio}
+                onChange={handleChangeEdit}
+                className="w-full p-3 rounded-xl bg-white text-black"
+              />
 
-              <button
-                onClick={handleEditar}
-                className="bg-orange-500 px-3 py-1 text-white rounded"
-              >
-                Guardar
-              </button>
+              <input
+                type="text"
+                name="imagen"
+                value={formEdit.imagen}
+                onChange={handleChangeEdit}
+                className="w-full p-3 rounded-xl bg-white text-black"
+              />
+
+              {formEdit.imagen && (
+                <img
+                  src={formEdit.imagen}
+                  alt="preview"
+                  className="w-full h-40 object-cover rounded-xl"
+                />
+              )}
+
+              <div className="flex gap-3 mt-2">
+
+                <button
+                  onClick={() => setProductoEditando(null)}
+                  className="flex-1 py-2 rounded-xl bg-gray-600 text-white"
+                >
+                  Cancelar
+                </button>
+
+                <button
+                  onClick={handleEditar}
+                  className="flex-1 py-2 rounded-xl bg-gradient-to-r from-orange-500 to-red-600 text-white font-bold"
+                >
+                  Guardar →
+                </button>
+
+              </div>
+
             </div>
 
           </div>
+
         </div>
       )}
 
